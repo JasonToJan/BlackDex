@@ -70,4 +70,5 @@ dependencies {
     implementation 'me.weishu:free_reflection:3.0.1'
     implementation project(':Bcore:black-hook')
     implementation project(':Bcore:black-fake')
+    implementation 'com.orhanobut:logger:2.2.0'
 }

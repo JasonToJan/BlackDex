@@ -13,6 +13,8 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.Process;
 
+import com.orhanobut.logger.Logger;
+
 import top.niunaijun.blackbox.app.configuration.ClientConfiguration;
 import top.niunaijun.blackbox.fake.delegate.ContentProviderDelegate;
 import top.niunaijun.blackbox.fake.frameworks.BDumpManager;
@@ -153,8 +155,10 @@ public class BlackBoxCore extends ClientConfiguration {
     public boolean launchApk(String packageName) {
         Intent launchIntentForPackage = getBPackageManager().getLaunchIntentForPackage(packageName, USER_ID);
         if (launchIntentForPackage == null) {
+            Logger.d("launch package null, return");
             return false;
         }
+        Logger.d("launchIntentForPackage ==> " + USER_ID);
         startActivity(launchIntentForPackage, USER_ID);
         return true;
     }

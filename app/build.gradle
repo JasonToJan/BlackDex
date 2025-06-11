@@ -95,6 +95,7 @@ dependencies {
     //状态控制控件
     implementation 'com.github.Ferfalk:SimpleSearchView:0.2.0'
     //searchView
+    implementation 'com.orhanobut:logger:2.2.0'
 
     implementation  'com.umeng.umsdk:common:9.3.8'
     implementation  'com.umeng.umsdk:asms:1.2.2'

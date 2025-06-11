@@ -3,6 +3,8 @@ package top.niunaijun.blackbox.fake.frameworks;
 import android.content.Intent;
 import android.os.RemoteException;
 
+import com.orhanobut.logger.Logger;
+
 import top.niunaijun.blackbox.BlackBoxCore;
 import top.niunaijun.blackbox.core.system.ServiceManager;
 import top.niunaijun.blackbox.core.system.am.IBActivityManagerService;
@@ -26,8 +28,10 @@ public class BActivityManager {
     public void startActivity(Intent intent, int userId) {
         try {
             getService().startActivity(intent, userId);
+            Logger.d("startActivity success...");
         } catch (Exception e) {
             e.printStackTrace();
+            Logger.d("startActivity error..."+e.getMessage());
         }
     }
 
@@ -36,6 +40,7 @@ public class BActivityManager {
             return mService;
         }
         mService = IBActivityManagerService.Stub.asInterface(BlackBoxCore.get().getService(ServiceManager.ACTIVITY_MANAGER));
+        Logger.d("mService success..."+mService+" alive="+mService.asBinder().isBinderAlive());
         return getService();
     }
 }

@@ -4,6 +4,7 @@ import android.content.pm.ApplicationInfo
 import android.net.Uri
 import android.webkit.URLUtil
 import androidx.lifecycle.MutableLiveData
+import com.orhanobut.logger.Logger
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -51,6 +52,7 @@ class DexDumpRepository {
             installedList.add(info)
         }
 
+        Logger.d("appList==>${installedList}")
         mAppListLiveData.postValue(installedList)
     }
 
@@ -63,7 +65,7 @@ class DexDumpRepository {
         } else {
             BlackDexCore.get().dumpDex(source)
         }
-
+        Logger.d("dumpDex==>${result}")
         if (result != null) {
             dumpTaskId++
             startCountdown(result, dexDumpLiveData)
