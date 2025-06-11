@@ -26,7 +26,8 @@
             android:theme="@style/Theme.BlackDex">
         <activity
                 android:name=".view.base.WelcomeActivity"
-                android:theme="@style/WelcomeTheme">
+                android:theme="@style/WelcomeTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
